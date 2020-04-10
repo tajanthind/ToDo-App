@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'models/global.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //color: Colors.yellow,
+      color: Colors.yellow,
       home: DefaultTabController(
         length: 3,
         child: new Scaffold(
@@ -40,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 TabBarView(
                   children: [
                     new Container(
-                      color: Colors.grey,
+                      color: darkGreyColor,
                     ),
                     new Container(
                       color: Colors.orange,
@@ -51,9 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 Container(
-                  padding: EdgeInsets.only(
-                    left: 50
-                  ),
+                  padding: EdgeInsets.only(left: 50),
                   height: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
@@ -64,11 +63,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text("Intray"),
-                      Container(
-
+                      Text(
+                        "Intray",
+                        style: intrayTitleStyle,
                       ),
+                      Container(),
                     ],
+                  ),
+                ),
+                Container(
+                  height: 80,
+                  width: 80,
+                  margin: EdgeInsets.only(
+                    top: 125,
+                    left: MediaQuery.of(context).size.width * 0.5 - 40,
+                  ),
+                  child: FloatingActionButton(
+                    elevation: 10,
+                    child: Icon(
+                      Icons.add,
+                      size: 70,
+                    ),
+                    backgroundColor: redColor,
+                    onPressed: () {},
                   ),
                 )
               ],
@@ -88,13 +105,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: new Icon(Icons.perm_identity),
                 ),
               ],
-              labelColor: Colors.red,
-              unselectedLabelColor: Colors.blue,
+              labelColor: darkGreyColor,
+              unselectedLabelColor: redColor,
               indicatorSize: TabBarIndicatorSize.label,
               indicatorPadding: EdgeInsets.all(5.0),
+              indicatorColor: darkGreyColor,
             ),
             backgroundColor: Colors.white,
           ),
+          backgroundColor: Colors.white,
         ),
       ),
     );
